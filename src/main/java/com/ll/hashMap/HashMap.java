@@ -1,5 +1,8 @@
 package com.ll.hashMap;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class HashMap<K, V> {
     Object[] keys;
     Object[] values;
@@ -20,7 +23,6 @@ public class HashMap<K, V> {
         size++;
         keys[size-1] = key;
         values[size-1] = value;
-
 
     }
 
@@ -63,5 +65,13 @@ public class HashMap<K, V> {
         Util.arr.moveLeft(keys, removeKey+1, size-1);
 
         size--;
+    }
+
+    public Set<K> keySet() {
+        Set<K> keySet = new HashSet<>();
+        for (int i = 0; i < size; i++) {
+            keySet.add((K)keys[i]);
+        }
+        return keySet;
     }
 }
