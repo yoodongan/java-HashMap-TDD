@@ -49,4 +49,19 @@ public class HashMap<K, V> {
         return false;
     }
 
+    public int size() {
+        return size;
+    }
+
+    public void remove(K key) {
+        int removeKey = getIndexOfKey(key);
+        if (removeKey == -1) {
+            System.out.println("삭제할 값이 없습니다.");
+            return;
+        }
+        Util.arr.moveLeft(keys, removeKey+1, size-1);  // removeKey 우측에 있는 키부터 왼쪽으로 차례대로 옮겨준다.
+        Util.arr.moveLeft(keys, removeKey+1, size-1);
+
+        size--;
+    }
 }
