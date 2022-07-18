@@ -9,8 +9,8 @@ public class HashMap<K, V> {
     int size;
 
     public HashMap() {
-        keys = new Object[100];
-        values = new Object[100];
+        keys = new Object[2];
+        values = new Object[2];
         size = 0;
     }
 
@@ -20,10 +20,19 @@ public class HashMap<K, V> {
             if( index != -1 ) values[index] = value;
             return;
         }
+        sizeUpArr();
+
         size++;
         keys[size-1] = key;
         values[size-1] = value;
 
+    }
+
+    public void sizeUpArr() {
+        if(size == keys.length) {    // 배열이 full 이면, 확장한다.
+            keys = Util.arr.sizeUp(keys);
+            values = Util.arr.sizeUp(values);
+        }
     }
 
     public V get(K key) {
@@ -74,4 +83,6 @@ public class HashMap<K, V> {
         }
         return keySet;
     }
+
+
 }

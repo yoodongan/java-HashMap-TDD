@@ -7,6 +7,14 @@ public class Util {
                 arr[i - 1] = arr[i];
             }
         }
+        public static Object[] sizeUp(Object[] arr) {
+            Object[] newArr = new Object[arr.length * 2];
+            for (int i = 0; i < arr.length; i++) {
+                newArr[i] = arr[i];
+            }
+            arr = newArr;
+            return arr;
+        }
 
 
     }
